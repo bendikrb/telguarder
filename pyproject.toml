@@ -1,0 +1,138 @@
+[tool.poetry]
+name = "telguarder"
+version = "0.0.0"
+description = "An unofficial client library for using the telguarder API"
+readme = "README.md"
+authors = ["Bendik R. Brenne <bendik@konstant.no>"]
+repository = "https://github.com/bendikrb/telguarder"
+documentation = "https://telguarder.readthedocs.io/en/latest/"
+license = "MIT"
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+keywords = [
+    "caller-id",
+    "api-client",
+    "unofficial",
+]
+packages = [
+    { include = "telguarder" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+rich = "^13.9.2"
+aiohttp = "^3.10.9"
+mashumaro = "^3.13.1"
+orjson = "^3.10.7"
+async-timeout = "^5.0.0"
+
+[tool.poetry.group.dev.dependencies]
+aresponses = "^3.0.0"
+covdefaults = "2.3.0"
+pre-commit = "^3.8.0"
+pre-commit-hooks = "^5.0.0"
+pylint = "3.3.1"
+pytest = "^8.3.3"
+pytest-asyncio = "*"
+pytest-cov = "^5.0.0"
+ruff = "0.6.9"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.0.2"
+sphinx-book-theme = "^1.1.3"
+sphinx-autodoc-typehints = "^2.4.4"
+enum-tools = "^0.12.0"
+sphinx-toolbox = "^3.8.0"
+myst-parser = "^4.0.0"
+
+[tool.poetry.extras]
+test = ["pytest", "pytest-asyncio", "pytest-cov"]
+doc = [
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-book-theme",
+    "enum-tools",
+    "sphinx-toolbox",
+]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.coverage.run]
+plugins = ["covdefaults"]
+source = ["telguarder"]
+
+[tool.poetry.scripts]
+telguarder = "telguarder.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "--cov"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+ignore = [
+    "ARG001",
+    "A003", "ANN001", "ANN003", "ANN101", "ANN102", "ANN201", "ANN202", "ANN204", "ANN205", "ANN401",
+    "COM812", "COM819",
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D202", "D203", "D205", "D206", "D213",
+    "E501", "EM101", "EM102",
+    "ERA001",
+    "FBT001", "FBT002", "FBT003",
+    "FIX002",
+    "G004",
+    "ISC001",
+    "PLR0913",
+    "PTH123",
+    "Q000", "Q001", "Q002", "Q003",
+    "RUF012",
+    "S101",
+    "SLOT000",
+    "TD003", "TID252", "TRY003", "TRY300",
+    "W191",
+]
+select = ["ALL"]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "format",
+    "duplicate-code",
+    "used-before-assignment",
+    "too-many-arguments",
+    "too-many-instance-attributes",
+    "too-few-public-methods",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring",
+]
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+known-first-party = ["telguarder"]
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = [
+    "mashumaro.mixins.orjson.DataClassORJSONMixin",
+]
+
+[tool.ruff.lint.pylint]
+max-branches = 15
+max-statements = 60
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,18 @@
+# This extend our general Ruff rules specifically for tests
+extend = "../pyproject.toml"
+
+lint.extend-select = [
+    "PT", # Use @pytest.fixture without parentheses
+]
+
+lint.extend-ignore = [
+    "S101",
+    "S105",
+    "S106",
+    "SLF001",
+    "TCH002",
+    "PLR2004",
+]
+
+lint.pylint.max-branches = 13
+lint.mccabe.max-complexity = 12
