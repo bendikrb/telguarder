@@ -36,7 +36,7 @@ If you have any questions or need assistance with the library, you can contact t
 
 
 [license-shield]: https://img.shields.io/github/license/bendikrb/telguarder.svg
-[license]: https://github.com/bendikrb/telguarder/blob/main/LICENSE.md
+[license]: https://github.com/bendikrb/telguarder/blob/master/LICENSE.md
 [releases-shield]: https://img.shields.io/pypi/v/telguarder
 [releases]: https://github.com/bendikrb/telguarder/releases
 [build-shield]: https://github.com/bendikrb/telguarder/actions/workflows/test.yaml/badge.svg
