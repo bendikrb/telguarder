@@ -10,7 +10,7 @@
 [![Code coverage][codecov-shield]][codecov]
 
 
-Asynchronous Python client for the NRK Podcast/Radio API
+Asynchronous Python client for the [Telguarder](https://www.telguarder.com/) API.
 
 ## Installation
 
@@ -20,7 +20,21 @@ pip install telguarder
 
 ## Usage
 
-TBD
+```python
+
+from telguarder import TelguarderClient
+
+async with TelguarderClient() as client:
+    result = await client.lookup("12345678")
+    print(result)
+
+```
+
+## CLI
+
+```bash
+telguarder lookup 12345678
+```
 
 ## Contributing
 
