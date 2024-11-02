@@ -3,7 +3,7 @@
 [![GitHub Release][releases-shield]][releases]
 [![Python Versions][py-versions-shield]][py-versions]
 ![Project Maintenance][maintenance-shield]
-[![License][license-shield]](LICENSE.md)
+[![License][license-shield]][license]
 ![Made with Love in Norway][madewithlove-shield]
 
 [![Build Status][build-shield]][build]
@@ -36,7 +36,7 @@ If you have any questions or need assistance with the library, you can contact t
 
 
 [license-shield]: https://img.shields.io/github/license/bendikrb/telguarder.svg
-[license]: https://github.com/bendikrb/telguarder/blob/main/LICENSE
+[license]: https://github.com/bendikrb/telguarder/blob/main/LICENSE.md
 [releases-shield]: https://img.shields.io/pypi/v/telguarder
 [releases]: https://github.com/bendikrb/telguarder/releases
 [build-shield]: https://github.com/bendikrb/telguarder/actions/workflows/test.yaml/badge.svg
