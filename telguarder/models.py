@@ -68,7 +68,6 @@ class Address(BaseDataClassORJSONMixin):
 class Coordinates(BaseDataClassORJSONMixin):
     longitude: float
     latitude: float
-    address: Address | None = None
 
 
 @dataclass

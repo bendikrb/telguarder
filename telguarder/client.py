@@ -29,6 +29,7 @@ from telguarder.exceptions import (
     TelguarderUnauthorizedError,
 )
 from telguarder.models import LookupResults
+from telguarder.version import __version__
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -41,6 +42,8 @@ class TelguarderClient:
     """Country code for the Telguarder service."""
     request_timeout: int = DEFAULT_REQUEST_TIMEOUT
     """Timeout for API requests in seconds."""
+    user_agent: str | None = None
+    """User agent for API requests."""
     session: ClientSession | None = None
     """(ClientSession | None): The :class:`aiohttp.ClientSession` to use for API requests."""
 
@@ -139,6 +142,7 @@ class TelguarderClient:
         """Generate a header for HTTP requests to the server."""
         return {
             "Accept": "application/json",
+            "User-Agent": self.user_agent or f"telguarder/{__version__}",
             "X-Country-Code": self.country_code,
             "X-ServiceKey": SERVICE_KEY,
         }
